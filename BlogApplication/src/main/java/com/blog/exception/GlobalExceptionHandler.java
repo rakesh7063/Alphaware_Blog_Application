@@ -65,7 +65,7 @@ public class GlobalExceptionHandler {
         myErrorDetails.setMessage("Validation failed !!");
 
         List<ObjectError> allErrors = ex.getBindingResult().getAllErrors();
-e
+
         List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(allErrors);
 
 

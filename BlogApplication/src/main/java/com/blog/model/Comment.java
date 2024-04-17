@@ -28,9 +28,9 @@ public class Comment {
     @ManyToOne
     private Post post;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
     @JsonIgnore
-    private User User;
+    private User user;
 
 }

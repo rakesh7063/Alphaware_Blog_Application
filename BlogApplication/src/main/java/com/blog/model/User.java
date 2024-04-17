@@ -32,16 +32,17 @@ public class User {
     @NotEmpty
     @NotBlank(message = "Address cannot be blank")
     private String address;
-    @Size(min = 12, message = "Age should be minimum 12")
+
     private Integer age;
-    @NotEmpty
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String role;
     @Enumerated
     private Gender gender;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotBlank(message = "Password cannot be blank")
     @Size(min = 6, max = 12, message = "Password must be between 6 and 12 characters")
-    @Pattern(regexp =  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{5,15}$",message = "password must contain atleast 1 uppercase, 1 lowercase, 1 special character and 1 digit")
+
     private String password;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

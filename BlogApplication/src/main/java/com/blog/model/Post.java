@@ -29,6 +29,9 @@ public class Post {
     @NotEmpty(message = "Content should not be Empty")
     private String content;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @ManyToOne
+    private User user;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
